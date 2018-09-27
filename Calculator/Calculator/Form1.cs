@@ -10,14 +10,20 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    //TODO : написать вторую форму с лицензией
     public partial class Form1 : Form
     {
+        //объявляем первую дробь
         Fraction firstFraction = new Fraction();
+        //объявляем вторую дробь
         Fraction secondFraction = new Fraction();
+        //обявляем результирующую дробь
         Fraction result = new Fraction(1,1,1);
+        //объявляем строку опрделения операции
         String operation = "";
+        //объявляем переменную для запоминания на каком текстбоксе фокус
         Control lastFocus;
+        //объявляем форму для лицензии
+        Licens LForm = new Licens();
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +33,7 @@ namespace Calculator
         {
 
         }
-        //ввод операции о целой части
+        //ввод целой части
         private void txtbIntegerPart_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -75,13 +81,13 @@ namespace Calculator
             }
             catch(Exception InputE)
             {
-                txtbIntegerPart.Text = "Ops you broke some thing";
+                label1.Text = "Ops you broke some thing";
             }
         }
         //ввод информайии о числители 
         private void txtbNumerator_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            //отлавливаем неизвестные ошибки
             try
             {
                 //отсеиваем все кроме чисел
@@ -124,7 +130,7 @@ namespace Calculator
             }
             catch(Exception InputE)
             {
-                txtbNumerator.Text = "Ops you broke some thing";
+                label1.Text = "Ops you broke some thing";
             }
         }
         //ввод информации об операции
@@ -148,6 +154,7 @@ namespace Calculator
                 {
                     e.Handled = true;
                 }
+                //возможность введения второй дроби после введения операции первой дроби и нажатия enter
                 if((txtbOperation.Text != "") && (e.KeyChar == (char)Keys.Enter))
                 {
                     if (
@@ -169,7 +176,7 @@ namespace Calculator
                         txtbIntegerPart.Text = "";
                         txtbNumerator.Text = "";
                         txtbDenominator.Text = "";
-
+                        //двиагаем фокус на textbox целой части
                         txtbIntegerPart.Focus();
                         lastFocus = txtbIntegerPart;
 
@@ -182,7 +189,7 @@ namespace Calculator
             }
             catch(Exception InputE)
             {
-                txtbOperation.Text = "Ops you broke some thing";
+                label1.Text = "Ops you broke some thing";
             }
         }
         //ввод информации о знаменателе
@@ -235,7 +242,7 @@ namespace Calculator
             }
             catch(Exception InputE)
             {
-                txtbDenominator.Text = "Ops you broke some thing";
+                label1.Text = "Ops you broke some thing";
             }
         }
         // обраюотку ситуации нажатия на кнопку 0-9
@@ -250,44 +257,56 @@ namespace Calculator
         //обработку нажатия на кнопку =
         private void btnOperationEqual_Click(object sender, EventArgs e)
         {
+            //отлавливаем не предусмотренный исключения
             try
             {
+                //проверяем введена ли вторая дробь 
                 if(
                     (txtbIntegerPart.Text != "") &&
                     (txtbNumerator.Text != "") &&
                     (txtbDenominator.Text != "")
                   )
                 {
+                    //запоминаем информацию о втрой дроби
                     secondFraction.SetFraction(integerPart: Convert.ToInt32(txtbIntegerPart.Text),
                         denominator: Convert.ToInt32(txtbDenominator.Text),
                         numerator: Convert.ToInt32(txtbNumerator.Text));
+                    //запоминаем необходимую операцию
                     operation = txtbOperation.Text;
                     switch(operation)
                     {
+                        //складываем два числа и кладем результат в Fraction result
                         case "+":
                             result = firstFraction.OperationPlus(secondFraction);
                             break;
+                        //вычитаем два числа и кладем результат в Fraction result
                         case "-":
                             result = firstFraction.OperationMinus(secondFraction);
                             break;
+                       //делим два числа и кладем результат в Fraction result
                         case "/":
                             result = firstFraction.OperationDivision(secondFraction);
                             break;
+                        //перемнодаем два числа и кладем результат в Fraction result
                         case "*":
                             result = firstFraction.OperationMultiplication(secondFraction);
                             break;
                         default: break;
                     }
-
+                    //очищаем информацию об операции
                     operation = "";
+                    //чистим textbox операции
                     txtbOperation.Text = "";
+                    //выводим результат
                     txtbIntegerPart.Text = result.IntegerPart.ToString();
                     txtbNumerator.Text = result.Numerator.ToString();
                     txtbDenominator.Text = result.Denominator.ToString();
-
+                    //чистим информацию о дробях
                     firstFraction.CleanFraction();
                     secondFraction.CleanFraction();
-
+                    result.CleanFraction();
+                    //двигаем фокус обратно на textbox целой части
+                    lastFocus = txtbIntegerPart;
 
                 }
             }
@@ -299,8 +318,10 @@ namespace Calculator
         //обрабатываем нажатие на кнопку +
         private void btnOperationPlus_Click(object sender, EventArgs e)
         {
+            //обрабатываем непредведенный ошибки
             try
             {
+                //если первая дробть введена
                 if (
                      (firstFraction.Numerator == 0) &&
                      (firstFraction.IntegerPart == 0) && 
@@ -309,35 +330,38 @@ namespace Calculator
                      (txtbDenominator.Text != "")
                     )
                 {
-                    //создаем новую дробь
+                    //запоминаем первую дробь
 
                     firstFraction.SetFraction(integerPart: Convert.ToInt32(txtbIntegerPart.Text),
                         denominator: Convert.ToInt32(txtbDenominator.Text),
                         numerator: Convert.ToInt32(txtbNumerator.Text));
 
-                    //чистим текст боксы
+                    //чистим текст боксы и переходим к чтению второй дроби
 
                     txtbIntegerPart.Text = "";
                     txtbNumerator.Text = "";
                     txtbDenominator.Text = "";
+                    //двигаем фокус обратно на textbox целой части
+                    lastFocus = txtbIntegerPart;
 
 
                 }
             }
             catch(Exception b)
             { label1.Text = b.ToString(); }
-
-
-            operation = "+";
+            //заполняем textbox операции значения сложения
             txtbOperation.Text = "+";
         }
         //обработку ситуации когда нажатием на кнопку надо поставить минус в значении дроби
         private void btnOperationMinus_Click(object sender, EventArgs e)
         {
+            //обрабатываем непонятные ошбики
             try
             {
+                //если фокус ввода на textbox для операторов 
                 if (lastFocus == txtbOperation)
                 {
+                    //проверяем введена ли первая дробь
                     if (
                          (firstFraction.Numerator == 0) &&
                          (firstFraction.IntegerPart == 0) &&
@@ -346,7 +370,7 @@ namespace Calculator
                          (txtbDenominator.Text != "")
                         )
                     {
-                        //создаем новую дробь
+                        //запоминаем первую дробь
 
                         firstFraction.SetFraction(integerPart: Convert.ToInt32(txtbIntegerPart.Text),
                             denominator: Convert.ToInt32(txtbDenominator.Text),
@@ -357,19 +381,23 @@ namespace Calculator
                         txtbIntegerPart.Text = "";
                         txtbNumerator.Text = "";
                         txtbDenominator.Text = "";
-
-                        operation = "-";
+                        //двигаем фокус обратно на textbox целой части
+                        lastFocus = txtbIntegerPart;
+                        //заполняем textbox операции значение для операции вычитание
                         txtbOperation.Text = "-";
                     }
                     else
+                    //если фокус на textbox для оперции , но первая дробь не введена ,то просто заполняем textbox для оперций 
                     {
-                        operation = "-";
                         txtbOperation.Text = "-";
                     }
-                }else
+                }
+                else
+                //если фокус указывает не на textbox для оперций,то проверяем первым ли символом будет минус и единственный ли он
                 {
                     if((lastFocus.Text.Length <= 0) && (lastFocus.Text.IndexOf('-') == -1))
                     {
+                        //дописываем минус в textbox на который установили фокус
                         lastFocus.Text += '-';
                     }
                 }
@@ -381,8 +409,10 @@ namespace Calculator
 
         private void btnOperationMultiplication_Click(object sender, EventArgs e)
         {
+            //отлавливаем неизвестные ошибки
             try
             {
+                //проверяем введена ли первая дробь
                 if (
                      (firstFraction.Numerator == 0) &&
                      (firstFraction.IntegerPart == 0) &&
@@ -391,7 +421,7 @@ namespace Calculator
                      (txtbDenominator.Text != "")
                     )
                 {
-                    //создаем новую дробь
+                    //запоминаем первую дробь
 
                     firstFraction.SetFraction(integerPart: Convert.ToInt32(txtbIntegerPart.Text),
                         denominator: Convert.ToInt32(txtbDenominator.Text),
@@ -402,23 +432,24 @@ namespace Calculator
                     txtbIntegerPart.Text = "";
                     txtbNumerator.Text = "";
                     txtbDenominator.Text = "";
-
+                    //двигаем фокус обратно на textbox целой части
+                    lastFocus = txtbIntegerPart;
 
                 }
             }
             catch (Exception b)
             { label1.Text = b.ToString(); }
-
-
-            operation = "*";
+            //заполняем textbox оперцаии знаком *
             txtbOperation.Text = "*";
         }
     
 
         private void btnOperationDivision_Click(object sender, EventArgs e)
         {
+            //отлавливаем случайные ошибки
             try
             {
+                //проверяем введена ли первая дробь
                 if (
                      (firstFraction.Numerator == 0) &&
                      (firstFraction.IntegerPart == 0) &&
@@ -427,7 +458,7 @@ namespace Calculator
                      (txtbDenominator.Text != "")
                     )
                 {
-                    //создаем новую дробь
+                    //запоминаем первую дробь
 
                     firstFraction.SetFraction(integerPart: Convert.ToInt32(txtbIntegerPart.Text),
                         denominator: Convert.ToInt32(txtbDenominator.Text),
@@ -438,7 +469,8 @@ namespace Calculator
                     txtbIntegerPart.Text = "";
                     txtbNumerator.Text = "";
                     txtbDenominator.Text = "";
-
+                    //двигаем фокус обратно на textbox целой части
+                    lastFocus = txtbIntegerPart;
 
                 }
             }
@@ -556,16 +588,25 @@ namespace Calculator
                 }
             }   
         }
-
+        //кнопка очистки всех значений
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //чистим textbox'ы
             txtbIntegerPart.Text = "";
             txtbNumerator.Text = "";
             txtbDenominator.Text = "";
             txtbOperation.Text = "";
+            //чистим информацию о дробях
             firstFraction.CleanFraction();
             secondFraction.CleanFraction();
+            result.CleanFraction();
+            //чистим информацию об операции
             operation = "";
+        }
+
+        private void btnInformation_Click(object sender, EventArgs e)
+        {
+            LForm.ShowDialog();
         }
     }
 }

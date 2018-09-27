@@ -49,6 +49,7 @@
             this.txtbOperation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnInformation = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtbIntegerPart
@@ -255,11 +256,22 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnInformation
+            // 
+            this.btnInformation.Location = new System.Drawing.Point(256, 413);
+            this.btnInformation.Name = "btnInformation";
+            this.btnInformation.Size = new System.Drawing.Size(100, 25);
+            this.btnInformation.TabIndex = 21;
+            this.btnInformation.Text = "information";
+            this.btnInformation.UseVisualStyleBackColor = true;
+            this.btnInformation.Click += new System.EventHandler(this.btnInformation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 450);
+            this.Controls.Add(this.btnInformation);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtbOperation);
@@ -312,6 +324,7 @@
         private System.Windows.Forms.TextBox txtbOperation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnInformation;
     }
 }
 

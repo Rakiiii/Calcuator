@@ -8,3 +8,4 @@ C:\C_Projects\Calcuator\Calculator\Calculator\bin\Debug\Calculator.exe
 C:\C_Projects\Calcuator\Calculator\Calculator\bin\Debug\Calculator.pdb
 C:\C_Projects\Calcuator\Calculator\Calculator\obj\Debug\Calculator.exe
 C:\C_Projects\Calcuator\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\C_Projects\Calcuator\Calculator\Calculator\obj\Debug\Calculator.Licens.resources
