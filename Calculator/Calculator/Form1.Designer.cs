@@ -54,6 +54,7 @@
             this.txtbIntegerPart.Name = "txtbIntegerPart";
             this.txtbIntegerPart.Size = new System.Drawing.Size(100, 22);
             this.txtbIntegerPart.TabIndex = 0;
+            this.txtbIntegerPart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbIntegerPart_KeyPress);
             // 
             // txtbNumerator
             // 

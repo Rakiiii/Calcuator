@@ -21,5 +21,24 @@ namespace Calculator
         {
 
         }
+
+        private void txtbIntegerPart_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+                if ((e.KeyChar >= '0' && e.KeyChar <= '9'))
+                {
+                    return;
+                }
+                if( e.KeyChar == '-')
+                {
+                   if(txtbIntegerPart.Text.IndexOf('-') != 1)
+                   {
+                       e.Handled = true;
+                       return;
+                   }
+                }
+                
+            
+        }
     }
 }
