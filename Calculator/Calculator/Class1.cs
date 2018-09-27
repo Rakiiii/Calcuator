@@ -11,18 +11,36 @@ namespace Calculator
         //числитель
 
         private int numerator;
-        
+
+        public int Numerator
+        {
+            get { return this.numerator;}
+        }
+
         //знаменатель
 
         private int denominator;
-        
+
         //целая часть
 
         private int integerPart;
 
+        public int IntegerPart
+        {
+            get { return this.integerPart; }
+        }
+            
+
         //конструктор
 
         public Fraction( int integerPart = 0 , int numerator = 0 , int denominator = 1 )
+        {
+            this.integerPart = integerPart;
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+
+        public void SetFraction(int integerPart, int numerator, int denominator)
         {
             this.integerPart = integerPart;
             this.numerator = numerator;

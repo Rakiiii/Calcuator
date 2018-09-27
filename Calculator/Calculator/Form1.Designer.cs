@@ -47,6 +47,7 @@
             this.btnNumber0 = new System.Windows.Forms.Button();
             this.btnOperationEqual = new System.Windows.Forms.Button();
             this.txtbOperation = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtbIntegerPart
@@ -81,6 +82,7 @@
             this.btnNumber1.TabIndex = 3;
             this.btnNumber1.Text = "1";
             this.btnNumber1.UseVisualStyleBackColor = true;
+            this.btnNumber1.Click += new System.EventHandler(this.btnNumber1_Click);
             // 
             // btnOperationMultiplication
             // 
@@ -90,6 +92,7 @@
             this.btnOperationMultiplication.TabIndex = 4;
             this.btnOperationMultiplication.Text = "*";
             this.btnOperationMultiplication.UseVisualStyleBackColor = true;
+            this.btnOperationMultiplication.Click += new System.EventHandler(this.btnOperationMultiplication_Click);
             // 
             // btnOperationDivision
             // 
@@ -99,6 +102,7 @@
             this.btnOperationDivision.TabIndex = 5;
             this.btnOperationDivision.Text = "/";
             this.btnOperationDivision.UseVisualStyleBackColor = true;
+            this.btnOperationDivision.Click += new System.EventHandler(this.btnOperationDivision_Click);
             // 
             // btnOperationMinus
             // 
@@ -108,6 +112,7 @@
             this.btnOperationMinus.TabIndex = 6;
             this.btnOperationMinus.Text = "-";
             this.btnOperationMinus.UseVisualStyleBackColor = true;
+            this.btnOperationMinus.Click += new System.EventHandler(this.btnOperationMinus_Click);
             // 
             // btnOperationPlus
             // 
@@ -117,6 +122,7 @@
             this.btnOperationPlus.TabIndex = 7;
             this.btnOperationPlus.Text = "+";
             this.btnOperationPlus.UseVisualStyleBackColor = true;
+            this.btnOperationPlus.Click += new System.EventHandler(this.btnOperationPlus_Click);
             // 
             // btnNumber9
             // 
@@ -207,6 +213,7 @@
             this.btnOperationEqual.TabIndex = 17;
             this.btnOperationEqual.Text = "=";
             this.btnOperationEqual.UseVisualStyleBackColor = true;
+            this.btnOperationEqual.Click += new System.EventHandler(this.btnOperationEqual_Click);
             // 
             // txtbOperation
             // 
@@ -216,11 +223,20 @@
             this.txtbOperation.TabIndex = 18;
             this.txtbOperation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbOperation_KeyPress);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(276, 346);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtbOperation);
             this.Controls.Add(this.btnOperationEqual);
             this.Controls.Add(this.btnNumber0);
@@ -269,6 +285,7 @@
         private System.Windows.Forms.Button btnNumber0;
         private System.Windows.Forms.Button btnOperationEqual;
         private System.Windows.Forms.TextBox txtbOperation;
+        private System.Windows.Forms.Label label1;
     }
 }
 
