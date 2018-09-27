@@ -46,6 +46,7 @@
             this.btnNumber2 = new System.Windows.Forms.Button();
             this.btnNumber0 = new System.Windows.Forms.Button();
             this.btnOperationEqual = new System.Windows.Forms.Button();
+            this.txtbOperation = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtbIntegerPart
@@ -62,6 +63,7 @@
             this.txtbNumerator.Name = "txtbNumerator";
             this.txtbNumerator.Size = new System.Drawing.Size(100, 22);
             this.txtbNumerator.TabIndex = 1;
+            this.txtbNumerator.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbNumerator_KeyPress);
             // 
             // txtbDenominator
             // 
@@ -69,6 +71,7 @@
             this.txtbDenominator.Name = "txtbDenominator";
             this.txtbDenominator.Size = new System.Drawing.Size(100, 22);
             this.txtbDenominator.TabIndex = 2;
+            this.txtbDenominator.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbDenominator_KeyPress);
             // 
             // btnNumber1
             // 
@@ -205,11 +208,20 @@
             this.btnOperationEqual.Text = "=";
             this.btnOperationEqual.UseVisualStyleBackColor = true;
             // 
+            // txtbOperation
+            // 
+            this.txtbOperation.Location = new System.Drawing.Point(237, 66);
+            this.txtbOperation.Name = "txtbOperation";
+            this.txtbOperation.Size = new System.Drawing.Size(21, 22);
+            this.txtbOperation.TabIndex = 18;
+            this.txtbOperation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbOperation_KeyPress);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 450);
+            this.Controls.Add(this.txtbOperation);
             this.Controls.Add(this.btnOperationEqual);
             this.Controls.Add(this.btnNumber0);
             this.Controls.Add(this.btnNumber2);
@@ -256,6 +268,7 @@
         private System.Windows.Forms.Button btnNumber2;
         private System.Windows.Forms.Button btnNumber0;
         private System.Windows.Forms.Button btnOperationEqual;
+        private System.Windows.Forms.TextBox txtbOperation;
     }
 }
 

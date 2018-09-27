@@ -14,7 +14,7 @@ namespace Calculator
         
         //знаменатель
 
-        private int decimator;
+        private int denominator;
         
         //целая часть
 
@@ -22,11 +22,11 @@ namespace Calculator
 
         //конструктор
 
-        public Fraction( int integerPart = 0 , int numerator = 0 , int decimator = 1 )
+        public Fraction( int integerPart = 0 , int numerator = 0 , int denominator = 1 )
         {
             this.integerPart = integerPart;
             this.numerator = numerator;
-            this.decimator = decimator;
+            this.denominator = denominator;
         }
 
 
@@ -34,12 +34,12 @@ namespace Calculator
 
         private void OperationRemoveIntPart()
         {
-            if (this.decimator != 0)
+            if (this.denominator != 0)
             {
-                this.numerator = this.numerator + (this.integerPart * this.decimator);
+                this.numerator = this.numerator + (this.integerPart * this.denominator);
             }else
             {
-                this.decimator = 1;
+                this.denominator = 1;
                 this.OperationRemoveIntPart();
             }
         }
@@ -52,8 +52,8 @@ namespace Calculator
 
             Fraction result = new Fraction();
 
-            result.numerator = (this.numerator * secondFraction.decimator) + (this.decimator * secondFraction.numerator);
-            result.decimator = this.decimator * secondFraction.decimator;
+            result.numerator = (this.numerator * secondFraction.denominator) + (this.denominator * secondFraction.numerator);
+            result.denominator = this.denominator * secondFraction.denominator;
 
             result.OperaritonAllotmantIntPart();
 
@@ -68,8 +68,8 @@ namespace Calculator
 
             Fraction result = new Fraction();
 
-            result.numerator = (this.numerator * secondFraction.decimator) - (this.decimator * secondFraction.numerator);
-            result.decimator = this.decimator * secondFraction.decimator;
+            result.numerator = (this.numerator * secondFraction.denominator) - (this.denominator * secondFraction.numerator);
+            result.denominator = this.denominator * secondFraction.denominator;
 
             result.OperaritonAllotmantIntPart();
 
@@ -84,8 +84,8 @@ namespace Calculator
 
             Fraction result = new Fraction();
 
-            result.numerator = this.numerator * secondFraction.decimator;
-            result.decimator = this.decimator * secondFraction.numerator;
+            result.numerator = this.numerator * secondFraction.denominator;
+            result.denominator = this.denominator * secondFraction.numerator;
 
             result.OperaritonAllotmantIntPart();
 
@@ -101,7 +101,7 @@ namespace Calculator
             Fraction result = new Fraction();
 
             result.numerator = this.numerator * secondFraction.numerator;
-            result.decimator = this.decimator * secondFraction.decimator;
+            result.denominator = this.denominator * secondFraction.denominator;
 
             result.OperaritonAllotmantIntPart();
 
@@ -113,11 +113,11 @@ namespace Calculator
         {
             try
             {
-                this.integerPart = this.numerator / this.decimator;
-                this.numerator = this.numerator % this.decimator;
+                this.integerPart = this.numerator / this.denominator;
+                this.numerator = this.numerator % this.denominator;
             }catch(DivideByZeroException e)
             {
-                this.decimator = 1;
+                this.denominator = 1;
                 this.OperaritonAllotmantIntPart();
             }
         }
