@@ -48,6 +48,7 @@
             this.btnOperationEqual = new System.Windows.Forms.Button();
             this.txtbOperation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtbIntegerPart
@@ -56,6 +57,7 @@
             this.txtbIntegerPart.Name = "txtbIntegerPart";
             this.txtbIntegerPart.Size = new System.Drawing.Size(100, 22);
             this.txtbIntegerPart.TabIndex = 0;
+            this.txtbIntegerPart.Enter += new System.EventHandler(this.txtbIntegerPart_Enter);
             this.txtbIntegerPart.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbIntegerPart_KeyPress);
             // 
             // txtbNumerator
@@ -64,6 +66,7 @@
             this.txtbNumerator.Name = "txtbNumerator";
             this.txtbNumerator.Size = new System.Drawing.Size(100, 22);
             this.txtbNumerator.TabIndex = 1;
+            this.txtbNumerator.Enter += new System.EventHandler(this.txtbNumerator_Enter);
             this.txtbNumerator.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbNumerator_KeyPress);
             // 
             // txtbDenominator
@@ -72,6 +75,7 @@
             this.txtbDenominator.Name = "txtbDenominator";
             this.txtbDenominator.Size = new System.Drawing.Size(100, 22);
             this.txtbDenominator.TabIndex = 2;
+            this.txtbDenominator.Enter += new System.EventHandler(this.txtbDenominator_Enter);
             this.txtbDenominator.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbDenominator_KeyPress);
             // 
             // btnNumber1
@@ -132,6 +136,7 @@
             this.btnNumber9.TabIndex = 8;
             this.btnNumber9.Text = "9";
             this.btnNumber9.UseVisualStyleBackColor = true;
+            this.btnNumber9.Click += new System.EventHandler(this.btnNumber9_Click);
             // 
             // btnNumber8
             // 
@@ -141,6 +146,7 @@
             this.btnNumber8.TabIndex = 9;
             this.btnNumber8.Text = "8";
             this.btnNumber8.UseVisualStyleBackColor = true;
+            this.btnNumber8.Click += new System.EventHandler(this.btnNumber8_Click);
             // 
             // btnNumber7
             // 
@@ -150,6 +156,7 @@
             this.btnNumber7.TabIndex = 10;
             this.btnNumber7.Text = "7";
             this.btnNumber7.UseVisualStyleBackColor = true;
+            this.btnNumber7.Click += new System.EventHandler(this.btnNumber7_Click);
             // 
             // btnNumber6
             // 
@@ -159,6 +166,7 @@
             this.btnNumber6.TabIndex = 11;
             this.btnNumber6.Text = "6";
             this.btnNumber6.UseVisualStyleBackColor = true;
+            this.btnNumber6.Click += new System.EventHandler(this.btnNumber6_Click);
             // 
             // btnNumber5
             // 
@@ -168,6 +176,7 @@
             this.btnNumber5.TabIndex = 12;
             this.btnNumber5.Text = "5";
             this.btnNumber5.UseVisualStyleBackColor = true;
+            this.btnNumber5.Click += new System.EventHandler(this.btnNumber5_Click);
             // 
             // btnNumber4
             // 
@@ -177,6 +186,7 @@
             this.btnNumber4.TabIndex = 13;
             this.btnNumber4.Text = "4";
             this.btnNumber4.UseVisualStyleBackColor = true;
+            this.btnNumber4.Click += new System.EventHandler(this.btnNumber4_Click);
             // 
             // btnNumber3
             // 
@@ -186,6 +196,7 @@
             this.btnNumber3.TabIndex = 14;
             this.btnNumber3.Text = "3";
             this.btnNumber3.UseVisualStyleBackColor = true;
+            this.btnNumber3.Click += new System.EventHandler(this.btnNumber3_Click);
             // 
             // btnNumber2
             // 
@@ -195,6 +206,7 @@
             this.btnNumber2.TabIndex = 15;
             this.btnNumber2.Text = "2";
             this.btnNumber2.UseVisualStyleBackColor = true;
+            this.btnNumber2.Click += new System.EventHandler(this.btnNumber2_Click);
             // 
             // btnNumber0
             // 
@@ -204,6 +216,7 @@
             this.btnNumber0.TabIndex = 16;
             this.btnNumber0.Text = "0";
             this.btnNumber0.UseVisualStyleBackColor = true;
+            this.btnNumber0.Click += new System.EventHandler(this.btnNumber0_Click);
             // 
             // btnOperationEqual
             // 
@@ -221,6 +234,7 @@
             this.txtbOperation.Name = "txtbOperation";
             this.txtbOperation.Size = new System.Drawing.Size(21, 22);
             this.txtbOperation.TabIndex = 18;
+            this.txtbOperation.Enter += new System.EventHandler(this.txtbOperation_Enter);
             this.txtbOperation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbOperation_KeyPress);
             // 
             // label1
@@ -231,11 +245,22 @@
             this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 19;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(256, 147);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(20, 23);
+            this.btnClear.TabIndex = 20;
+            this.btnClear.Text = "c";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 450);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtbOperation);
             this.Controls.Add(this.btnOperationEqual);
@@ -286,6 +311,7 @@
         private System.Windows.Forms.Button btnOperationEqual;
         private System.Windows.Forms.TextBox txtbOperation;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 

@@ -21,6 +21,11 @@ namespace Calculator
 
         private int denominator;
 
+        public int Denominator
+        {
+            get { return this.denominator; }
+        }
+
         //целая часть
 
         private int integerPart;
@@ -45,6 +50,13 @@ namespace Calculator
             this.integerPart = integerPart;
             this.numerator = numerator;
             this.denominator = denominator;
+        }
+
+        public void CleanFraction()
+        {
+            this.integerPart = 0;
+            this.denominator = 1;
+            this.numerator = 0;
         }
 
 
