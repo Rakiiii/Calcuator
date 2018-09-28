@@ -241,10 +241,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 346);
+            this.label1.Location = new System.Drawing.Point(115, 128);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 19;
+            this.label1.Text = "";
             // 
             // btnClear
             // 
@@ -258,7 +259,7 @@
             // 
             // btnInformation
             // 
-            this.btnInformation.Location = new System.Drawing.Point(256, 413);
+            this.btnInformation.Location = new System.Drawing.Point(176, 413);
             this.btnInformation.Name = "btnInformation";
             this.btnInformation.Size = new System.Drawing.Size(100, 25);
             this.btnInformation.TabIndex = 21;
@@ -270,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 450);
+            this.ClientSize = new System.Drawing.Size(301, 450);
             this.Controls.Add(this.btnInformation);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label1);

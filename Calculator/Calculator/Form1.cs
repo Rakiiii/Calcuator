@@ -17,7 +17,7 @@ namespace Calculator
         //объявляем вторую дробь
         Fraction secondFraction = new Fraction();
         //обявляем результирующую дробь
-        Fraction result = new Fraction(1,1,1);
+        Fraction result = new Fraction();
         //объявляем строку опрделения операции
         String operation = "";
         //объявляем переменную для запоминания на каком текстбоксе фокус
@@ -141,8 +141,14 @@ namespace Calculator
             try
             {
                 //запрещаем все кроме символов операции
-                if (((e.KeyChar == '+') || (e.KeyChar == '-') || (e.KeyChar == '/') || (e.KeyChar == '*')) && (txtbOperation.Text.Length == 0))
+                if ((e.KeyChar != '.') && ((e.KeyChar == '+') || (e.KeyChar == '-') || (e.KeyChar == '/') || (e.KeyChar == '*'))
+                    && (txtbOperation.Text.Length == 0))
                 {
+                    return;
+                }
+                if(e.KeyChar == '.')
+                {
+                    e.Handled = true;
                     return;
                 }
                 //разрешаем удаление
@@ -291,7 +297,9 @@ namespace Calculator
                         case "*":
                             result = firstFraction.OperationMultiplication(secondFraction);
                             break;
-                        default: break;
+                        default:
+                            label1.Text = "unknown operation";
+                            break;
                     }
                     //очищаем информацию об операции
                     operation = "";
