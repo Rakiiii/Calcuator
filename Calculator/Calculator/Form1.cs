@@ -484,114 +484,147 @@ namespace Calculator
             }
             catch (Exception b)
             { label1.Text = b.ToString(); }
-
-
-            operation = "/";
+            //заполняем textbox операции
             txtbOperation.Text = "/";
         }
-
+         
+        //обрабатываем переход фокуса на текст бокс с помошью мыши
         private void txtbIntegerPart_Enter(object sender, EventArgs e)
         {
             //двигаем акуальный фокус
 
             lastFocus = (Control)sender;
+            label1.Text = "";
 
         }
 
+        //обрабатываем переход фокуса на текст бокс с помошью мыши
         private void txtbNumerator_Enter(object sender, EventArgs e)
         {
             //двигаем акуальный фокус
 
             lastFocus = (Control)sender;
+            label1.Text = "";
 
         }
 
+        //обрабатываем переход фокуса на текст бокс с помошью мыши
         private void txtbDenominator_Enter(object sender, EventArgs e)
         {
             //двигаем акуальный фокус
 
             lastFocus = (Control)sender;
+            label1.Text = "";
 
         }
 
+        //обрабатываем переход фокуса на текст бокс с помошью мыши
         private void txtbOperation_Enter(object sender, EventArgs e)
         {
             //двигаем акуальный фокус
 
             lastFocus = (Control)sender;
+            label1.Text = "";
 
         }
 
+        //обарабатываем нажатие на кнопку 2
         private void btnNumber2_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 2
                 lastFocus.Text += '2';
             }
         }
 
+        //обарабатываем нажатие на кнопку 3
         private void btnNumber3_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 3
                 lastFocus.Text += '3';
             }
         }
 
+        //обарабатываем нажатие на кнопку 4
         private void btnNumber4_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 4
                 lastFocus.Text += '4';
             }
         }
 
+        //обарабатываем нажатие на кнопку 5
         private void btnNumber5_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 5
                 lastFocus.Text += '5';
             }
         }
 
+        //обарабатываем нажатие на кнопку 6
         private void btnNumber6_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 6
                 lastFocus.Text += '6';
             }
         }
 
+        //обарабатываем нажатие на кнопку 6
         private void btnNumber7_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 6
                 lastFocus.Text += '7';
             }
         }
 
+        //обарабатываем нажатие на кнопку 8
         private void btnNumber8_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 8
                 lastFocus.Text += '8';
             }
         }
 
+        //обарабатываем нажатие на кнопку 9
         private void btnNumber9_Click(object sender, EventArgs e)
         {
+            //если фокус не на textbox операции
             if (lastFocus != txtbOperation)
             {
+                //дописываем к последнему textbox в фокусе цифру 9
                 lastFocus.Text += '9';
             }
         }
 
+        //обарабатываем нажатие на кнопку 0
         private void btnNumber0_Click(object sender, EventArgs e)
         {
             if (lastFocus != txtbOperation)
             {
+                //если фокус не на textbox операции
                 if ((lastFocus != txtbDenominator) || (txtbDenominator.Text.Length >= 1))
                 {
+                    //дописываем к последнему textbox в фокусе цифру 0
                     lastFocus.Text += '0';
                 }
             }   
@@ -612,8 +645,20 @@ namespace Calculator
             operation = "";
         }
 
-        private void btnInformation_Click(object sender, EventArgs e)
+        //обрабатываем нажатие на close в всплывающем меню File
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //закрываем вторую форму
+            LForm.Close();
+            //закрываем приложение в целом
+            Application.Exit();
+            
+        }
+
+        //обрабытваем нажатие на informstion в всплывающем меню Help
+        private void informationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //показываем вторую форму в зависимом режиме
             LForm.ShowDialog();
         }
     }

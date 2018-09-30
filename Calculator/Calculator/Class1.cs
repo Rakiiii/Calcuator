@@ -12,6 +12,7 @@ namespace Calculator
 
         private int numerator;
 
+        //getter целой части
         public int Numerator
         {
             get { return this.numerator;}
@@ -21,6 +22,7 @@ namespace Calculator
 
         private int denominator;
 
+        //getter знаменателя
         public int Denominator
         {
             get { return this.denominator; }
@@ -30,6 +32,7 @@ namespace Calculator
 
         private int integerPart;
 
+        //getter числителя
         public int IntegerPart
         {
             get { return this.integerPart; }
@@ -45,12 +48,16 @@ namespace Calculator
             this.denominator = denominator;
         }
 
+        // функция заполнения дроби
+
         public void SetFraction(int integerPart, int numerator, int denominator)
         {
             this.integerPart = integerPart;
             this.numerator = numerator;
             this.denominator = denominator;
         }
+         
+        //функция обнуления дроби
 
         public void CleanFraction()
         {

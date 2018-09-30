@@ -17,9 +17,11 @@ namespace Calculator
             InitializeComponent();
         }
 
-        private void txtbLicens_TextChanged(object sender, EventArgs e)
+        //обрабатываем нажатие на кнопку Exit 
+        private void btnExit_Click(object sender, EventArgs e)
         {
-
+            //скрываем действующую форму
+            this.Hide();
         }
     }
 }
